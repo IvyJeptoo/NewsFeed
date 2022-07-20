@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&family=Cookie&family=Dancing+Script:wght@400;700&family=Inspiration&family=Pacifico&family=Poppins:wght@100;300&family=Satisfy&family=Shadows+Into+Light&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
