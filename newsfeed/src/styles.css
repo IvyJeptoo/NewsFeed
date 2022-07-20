@@ -7,3 +7,49 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
+.mainFeed{
+    background-color: 0.3em;
+    background-color: rgb(221, 243, 242);
+    color: black;
+    border-radius: 0.8em;
+
+}
+.feedAction {
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    padding: 1em 2em;
+    
+}
+
+.image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+img {
+    height: 20em;
+    width: 35em;
+    border-radius: 0.2em;
+
+}
+.feedActivity{
+    display: flex;
+    align-items: center;
+    padding-top: 0.5em;
+}
+.allFeeds{
+    width: 75%;
+    float: left;
+    margin-left: 25%;
+    padding: 3em 3em;
+    background-color: black;
+    color: white;
+    height: 100vh;
+}
+.navbar{
+    width: 25%;
+    float: left;  
+
+
+}
