@@ -2,12 +2,8 @@
 ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
-    /* width: 25%; */
-    background-color: black;
+    padding: 0;       
     
-    /* height: 50%; */
-    /* overflow: auto; */
 }
 li a{
     display: block;
