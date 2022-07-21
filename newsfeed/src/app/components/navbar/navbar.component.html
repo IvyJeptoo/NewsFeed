@@ -1,34 +1,23 @@
 
-<div class="navbar">
+<div class="nav">
     <ul>
         <li style="font-weight: 600;">
             <a routerLink="/" class="active" href="#">
                <p> All Friends</p>
             </a>
         </li> <hr>
+        <ul *ngFor="let users of UsersList">
         <li>
             <a routerLink="/userFeed" class="navComponents" href="#">
-                <img src="https://images.pexels.com/photos/60202/pexels-photo-60202.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-                <p>Kenya</p>
+                <img src="{{users.profilePicture}}" alt="">
+                <p>{{users.username}}</p>
             </a>
         </li>
-        <li>
-            <a href="#">
-                <img src="https://images.pexels.com/photos/60202/pexels-photo-60202.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-               <p> Norway</p>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <img src="https://images.pexels.com/photos/60202/pexels-photo-60202.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-               <p> India</p>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <img src="https://images.pexels.com/photos/60202/pexels-photo-60202.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
-               <p> Ethiopia</p>
-            </a>
-        </li>
+       
     </ul>
+    </ul>
+   
 </div>
+
+
+
