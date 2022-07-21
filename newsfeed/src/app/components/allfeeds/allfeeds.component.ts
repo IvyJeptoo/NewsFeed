@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./allfeeds.component.css']
 })
 export class AllfeedsComponent implements OnInit {
+  
 
   constructor() { }
 
