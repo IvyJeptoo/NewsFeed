@@ -9,6 +9,8 @@ export class Post {
         public image: string,
         public date: number,
         public comment: string,
+        public follow: string,
+        public info: string,
     ){
         this.showComment=false
 

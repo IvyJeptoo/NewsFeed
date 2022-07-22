@@ -16,7 +16,7 @@ export class PostService {
  
     // GET POSTS
   GetAllPosts(): Observable<Post[]>{
-   return this.http.get<Post[]>(this.baseurl + '/posts')
+   return this.http.get<Post[]>(this.baseurl + '/feedActivity')
  }
 
   

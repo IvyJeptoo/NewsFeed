@@ -13,6 +13,7 @@
     background-color: rgb(221, 243, 242);
     color: black;
     border-radius: 0.8em;
+    margin-bottom: 2em;
 
 }
 .feedAction {
@@ -43,10 +44,10 @@ img {
     width: 75%;
     float: left;
     margin-left: 25%;
-    padding: 3em 3em;
+    padding: 0 3em;
     background-color: black;
     color: white;
-    height: 100vh;
+    height: 100%;
 }
 .navbar{
     width: 25%;

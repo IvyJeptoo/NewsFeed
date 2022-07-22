@@ -5,12 +5,12 @@
             <a routerLink="/" class="active" href="#">
                <p> All Friends</p>
             </a>
-        </li> <hr>
-        <ul *ngFor="let users of UsersList">
+        </li> 
+        <ul *ngFor="let users of UsersList; index as i">
         <li>
-            <a routerLink="/userFeed" class="navComponents" href="#">
+            <a  class="navComponents" href="#">
                 <img src="{{users.profilePicture}}" alt="">
-                <p>{{users.username}}</p>
+                <p (click)="getUser(i)">{{users.username}}</p>
             </a>
         </li>
        

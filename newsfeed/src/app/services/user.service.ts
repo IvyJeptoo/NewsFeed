@@ -9,6 +9,9 @@ import { Observable, catchError } from 'rxjs';
 export class UserService {
   // BASE URL
   baseurl = 'http://localhost:3000';  
+  
+  // private userName: string;
+  
 
   constructor(private http: HttpClient) { }
  
@@ -17,5 +20,7 @@ export class UserService {
     return this.http.get<User[]>(this.baseurl + '/users');
     
   }
+  
+ 
   
 }

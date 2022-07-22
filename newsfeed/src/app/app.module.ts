@@ -8,11 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AllfeedsComponent } from './components/allfeeds/allfeeds.component';
-import { UserfeedsComponent } from './components/userfeeds/userfeeds.component';
-import { LikefeedComponent } from './components/likefeed/likefeed.component';
-import { PostfeedComponent } from './components/postfeed/postfeed.component';
-import { FollowComponent } from './components/follow/follow.component';
 import { UserService } from './services/user.service';
+import { FormsModule } from '@angular/forms';
+import { UserfeedComponent } from './components/userfeed/userfeed.component';
 
 
 @NgModule({
@@ -20,16 +18,14 @@ import { UserService } from './services/user.service';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    AllfeedsComponent,    
-    UserfeedsComponent,
-    LikefeedComponent,
-    PostfeedComponent,
-    FollowComponent,
+    AllfeedsComponent,
+    UserfeedComponent,    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

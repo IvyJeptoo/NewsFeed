@@ -1,0 +1,36 @@
+.modal{
+    border-radius: 0.2em;
+    background-color: rgb(221, 243, 242) ;
+}
+textarea{
+    margin: 0.7em;
+    width: 30%;
+    border: 1px solid lightseagreen;
+    border-radius: 0.8em;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+}
+.commentSection{
+    display: flex;
+    align-items: center;
+}
+h6{
+    
+    padding-left: 2em;
+}
+.randomuser img {
+    height: 4em;
+    width: 4em;
+    border-radius: 50%;
+
+}
+.randomuser {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+    /* background-color: red; */
+    
+    
+}

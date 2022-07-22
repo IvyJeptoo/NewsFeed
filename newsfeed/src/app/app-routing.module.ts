@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AllfeedsComponent } from './components/allfeeds/allfeeds.component';
-import { UserfeedsComponent } from './components/userfeeds/userfeeds.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 const routes: Routes = [
   {path: '', component: AllfeedsComponent},
-  {path: 'userFeed', component: UserfeedsComponent}
+  {path: 'userFeed', component: NavbarComponent}
 ];
 
 @NgModule({
