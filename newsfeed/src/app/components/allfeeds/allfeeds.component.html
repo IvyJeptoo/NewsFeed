@@ -1,6 +1,8 @@
 <div class="feeds">
     <div class="navbar">
-        <app-navbar></app-navbar>
+
+        <app-navbar (userName)="userFeedFunction($event) "></app-navbar>
+        
         
     </div>    
 
@@ -17,17 +19,18 @@
         <!-- post feeds -->
         <div *ngIf="posts.hasOwnProperty('image')" class="mainFeed">
             <div class="feedAction ">
+   
                 <p><strong>{{posts.subject}}</strong> {{posts.action}} a new {{posts.object}}</p>
-                <p>{{posts.date | date: "dd/MM/yyyy"}}</p>
+                <p>  {{posts.date | date: "dd/MM/yyyy"}} </p>
             </div>
             <div class="image">
             <img src="{{posts.image}}" alt="">
             <div class="feedActivity">
                 <div class="feedActivity">
-                    <p (click)="likeOnClick(like)" (click)="likeCount()" style="margin-right: 0.2em;">
+                    <p (click)="likeOnClick(like)"  style="margin-right: 0.2em;">
                         <i class='bx bx-heart bx-sm bx-tada-hover' style="color:lightseagreen ;"></i>
                     </p>
-                    <p>{{numberOfLikes}}</p>
+                    <p>{{posts.likes.length}}</p>
                     
                 </div>
                 <div class="feedActivity">
@@ -45,18 +48,29 @@
                                     <h2>Comment Section</h2>
                                   </header>
                                   <div class="commentSection">
-                                    <textarea #commentInput [(ngModel)]="comment"></textarea>
-                                  <i (click)="postComment()" class='bx bx-send bx-lg bx-tada-hover' style="color:lightseagreen ;"></i>
+                                    <!-- <form #commentForm="ngForm" (ngSubmit)="onComment(commentForm.value)">
+                                        <input type="text" name="cName" ngModel>
+                                        <button type="submit" >
+                                            post
+                                            
+                                        </button>
+
+                                        
+                                    </form> -->
+                                    <textarea name="comment" [(ngModel)]="comment"></textarea>
+                                  <i (click)="postComment(like)" class='bx bx-send bx-lg bx-tada-hover' style="color:lightseagreen ;"></i>
         
                                   </div>
+                                  
                                   <div *ngFor="let comments of commentList" class="w3-container">
-                                    <h5>{{comments}}</h5>
+                                    <h5>{{comment}}</h5>
         
                                   </div>
                                   
                               
                                   <div class="w3-container">
                                     <p *ngFor="let comment of posts.comments">{{comment.comment}}</p>
+                                    
                                     
                                   </div>
                               
@@ -78,7 +92,7 @@
                 <p>{{posts.date | date: "dd/MM/yyyy"}}</p> 
                 
             </div>
-            <h6 *ngFor="let comment of posts.comment">"<strong>{{comment.comment}}</strong>"</h6>
+            <h6 >"<strong>{{posts.message}}</strong>"</h6>
         
         </div>
         <!-- like -->
