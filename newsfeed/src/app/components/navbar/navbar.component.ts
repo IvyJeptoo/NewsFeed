@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,EventEmitter,Output } from '@angular/core';
 import { UserService } from '../../services/user.service';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { User } from '../../models/user';
-import { Observable, catchError } from 'rxjs';
+import { PostService } from '../../services/post.service';
 
 
 @Component({
@@ -11,15 +9,17 @@ import { Observable, catchError } from 'rxjs';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent  implements OnInit {
-
-  // BASE URL
-  baseurl = 'http://localhost:3000';
-
   UsersList: any = [];
+
+  @Output()
+  userName = new EventEmitter<string>(); 
+  allFeeds = new EventEmitter<any>();
+
+  
 
   constructor(
     public userService: UserService,
-    private http: HttpClient
+    public postService: PostService
   ) { }
   
 
@@ -27,13 +27,13 @@ export class NavbarComponent  implements OnInit {
     this.userService.GetAllUsers().subscribe(res => this.UsersList = res) 
 
   }
+  getUser(index: number) {
+    let userName = this.UsersList[index].username;
+    this.userName.emit(userName)    
+  }
+  getFeeds(){
+    this.allFeeds.emit(this.allFeeds)
 
-  // getUser(index: number){
-  //   console.log(this.UsersList[index].username);
-    
-  // }
-  getUser(index: number):Observable<User[]> {
-    return this.http.get<User[]>(this.baseurl + `/feedActivity?subject=${this.UsersList[index].username}`)
   }
   
 
