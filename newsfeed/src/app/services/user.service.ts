@@ -20,7 +20,7 @@ export class UserService {
     return this.http.get<User[]>(this.baseurl + '/users');
     
   }
-  
+ 
  
   
 }
