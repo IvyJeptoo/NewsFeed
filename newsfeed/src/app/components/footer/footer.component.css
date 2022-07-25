@@ -1,12 +1,10 @@
 .footer {
-    /* position: fixed; */
+    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
     background-color: black;
-    /* border: 1px solid lightseagreen; */
-    color: lightseagreen;
-    
-    text-align: center;
+    color: lightseagreen;    
+    text-align: left;
     padding: 1em;
 }

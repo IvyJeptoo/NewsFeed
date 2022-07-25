@@ -8,9 +8,9 @@ describe('AllfeedsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AllfeedsComponent ]
+      declarations: [AllfeedsComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(AllfeedsComponent);
     component = fixture.componentInstance;

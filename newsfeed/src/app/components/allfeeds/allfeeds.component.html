@@ -1,110 +1,93 @@
 <div class="feeds">
     <div class="navbar">
+        <app-navbar (userName)="userFeedFunction($event)" (allFeeds)="allFeeds()"></app-navbar>
 
-        <app-navbar (userName)="userFeedFunction($event) "></app-navbar>
-        
-        
-    </div>    
+    </div>
 
     <div class="allFeeds">
-        <div>
+        <div class="random">
+            <p style="margin-top: 1.9em;">Hey <span><i class='bx bxs-hand bx-tada bx-xs primary'></i></span> <br> You
+                are signed in as:</p>
             <div class="randomuser">
-                
+
                 <img src="{{randomuser?.picture?.large}}" alt="">
                 <p>{{randomuser?.name?.first}}</p>
             </div>
         </div>
-        
-        <div *ngFor="let posts of postList; index as like" >
-        <!-- post feeds -->
-        <div *ngIf="posts.hasOwnProperty('image')" class="mainFeed">
-            <div class="feedAction ">
-   
-                <p><strong>{{posts.subject}}</strong> {{posts.action}} a new {{posts.object}}</p>
-                <p>  {{posts.date | date: "dd/MM/yyyy"}} </p>
-            </div>
-            <div class="image">
-            <img src="{{posts.image}}" alt="">
-            <div class="feedActivity">
-                <div class="feedActivity">
-                    <p (click)="likeOnClick(like)"  style="margin-right: 0.2em;">
-                        <i class='bx bx-heart bx-sm bx-tada-hover' style="color:lightseagreen ;"></i>
-                    </p>
-                    <p>{{posts.likes.length}}</p>
-                    
+
+        <div *ngFor="let posts of postList; index as like">
+            <!-- POST FEED ALERT -->
+            <div *ngIf="posts.hasOwnProperty('image')" class="mainFeed">
+                <div class="feedAction ">
+
+                    <p><strong>{{posts.subject}}</strong> {{posts.action}} a new {{posts.object}}</p>
+                    <p> {{posts.date | date: "dd/MM/yyyy"}} </p>
                 </div>
-                <div class="feedActivity">
-                    <p style="margin-right: 0.2em; margin-left:0.7em">                
-                            <i onclick="document.getElementById('id01').style.display='block'" (click)="toggleDisplay()" class='bx bx-message-rounded-dots bx-sm bx-tada-hover' style="color:lightseagreen ;"></i>
+                <div class="image">
+                    <img src="{{posts.image}}" alt="">
+                    <div class="feedActivity">
+                        <div class="feedActivity">
+                            <p (click)="likeOnClick(like)" style="margin-right: 0.2em;">
+                                <i class='bx bx-heart bx-sm bx-tada-hover primary'></i>
+                            </p>
+                            <p>{{posts.likes.length}}</p>
+
+                        </div>
+                        <div class="feedActivity">
+                            <p style="margin-right: 0.2em; margin-left:0.7em">
+                                <i onclick="document.getElementById('id01').style.display='block'"
+                                    (click)="toggleDisplay()"
+                                    class='bx bx-message-rounded-dots bx-sm bx-tada-hover primary'></i>
                             <p>{{posts.comments.length}}</p>
-                        
-                        
-                            <div  [hidden]="isShowComment" id="id01" class="w3-modal">
-                                <div class="w3-modal-content modal">
-                              
-                                  <header class="w3-container w3-teal">
-                                    <span onclick="document.getElementById('id01').style.display='none'"
-                                    class="w3-button w3-display-topright">&times;</span>
-                                    <h2>Comment Section</h2>
-                                  </header>
-                                  <div class="commentSection">
-                                    <!-- <form #commentForm="ngForm" (ngSubmit)="onComment(commentForm.value)">
-                                        <input type="text" name="cName" ngModel>
-                                        <button type="submit" >
-                                            post
-                                            
-                                        </button>
 
-                                        
-                                    </form> -->
-                                    <textarea name="comment" [(ngModel)]="comment"></textarea>
-                                  <i (click)="postComment(like)" class='bx bx-send bx-lg bx-tada-hover' style="color:lightseagreen ;"></i>
-        
-                                  </div>
-                                  
-                                  <div *ngFor="let comments of commentList" class="w3-container">
-                                    <h5>{{comment}}</h5>
-        
-                                  </div>
-                                  
-                              
-                                  <div class="w3-container">
-                                    <p *ngFor="let comment of posts.comments">{{comment.comment}}</p>
-                                    
-                                    
-                                  </div>
-                              
-                                  
-                              
+
+                            <div [hidden]="isShowComment" id="id01" class="w3-modal">
+                                <div class="w3-modal-content modal">
+
+                                    <header class="w3-container w3-teal">
+                                        <span onclick="document.getElementById('id01').style.display='none'"
+                                            class="w3-button w3-display-topright">&times;</span>
+                                        <h2>Comment Section</h2>
+                                    </header>
+                                    <div class="commentSection">
+
+                                        <textarea name="comment" [(ngModel)]="comment"></textarea>
+                                        <i (click)="postComment(like)"
+                                            class='bx bx-send bx-lg bx-tada-hover primary'></i>
+
+                                    </div>
+
+
+
                                 </div>
-                              </div>
-                        <!-- </div> -->
-                                   
-                    
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-        </div> 
-        <!-- comment feeds -->
-        <div *ngIf="posts.hasOwnProperty('info')" class="mainFeed">
-            <div  class="feedAction">
-                <p><strong>{{posts.subject}}</strong> {{posts.action}} <strong>{{posts.owner}}</strong> {{posts.object}}</p>
-                <p>{{posts.date | date: "dd/MM/yyyy"}}</p> 
-                
-            </div>
-            <h6 >"<strong>{{posts.message}}</strong>"</h6>
-        
-        </div>
-        <!-- like -->
-        <div class="mainFeed">
-            <div *ngIf="posts.hasOwnProperty('upvote')"  class="feedAction">
-                <p><strong>{{posts.subject}}</strong>  {{posts.action}} <strong>{{posts.owner}} </strong> {{posts.object}}  </p>
-                <p>{{posts.date | date: "dd/MM/yyyy"}}</p>
-            </div>
-        </div>  
+            <!-- COMMENT FEED ALERT -->
+            <div *ngIf="posts.hasOwnProperty('info')" class="mainFeed">
+                <div class="feedAction">
+                    <p><strong>{{posts.subject}}</strong> {{posts.action}} <strong>{{posts.owner}}</strong>
+                        {{posts.object}}</p>
+                    <p>{{posts.date | date: "dd/MM/yyyy"}}</p>
 
-        
-        
+                </div>
+                <h6>"<strong>{{posts.message}}</strong>"</h6>
+
+            </div>
+            <!-- LIKE FEED ALERT -->
+            <div class="mainFeed">
+                <div *ngIf="posts.hasOwnProperty('upvote')" class="feedAction">
+                    <p><strong>{{posts.subject}}</strong> {{posts.action}} <strong>{{posts.owner}} </strong>
+                        {{posts.object}} </p>
+                    <p>{{posts.date | date: "dd/MM/yyyy"}}</p>
+                </div>
+            </div>
+
+
+
+        </div>
     </div>
-</div>
 </div>

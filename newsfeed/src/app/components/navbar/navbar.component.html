@@ -1,26 +1,25 @@
-
 <div class="nav">
     <ul>
         <li style="font-weight: 600;">
-            <a routerLink="/" class="active" href="#">
-               <p> All Friends</p>
-            </a>
-        </li> 
-        <ul *ngFor="let users of UsersList; index as i">
-        <li>
-            <a  class="navComponents" href="#">
-                <img src="{{users.profilePicture}}" alt="">
-                <p (click)="getUser(i)" >{{users.username}}</p>
-
+            <a (click)="getFeeds()" routerLink="/" class="active" href="#">
+                <p> All Friends</p>
             </a>
         </li>
-        
-       
+        <ul *ngFor="let users of UsersList; index as i">
+            <li>
+                <a (click)="getUser(i)" class="navComponents" href="#">
+                    <img src="{{users.profilePicture}}" alt="">
+                    <p (click)="getUser(i)">{{users.username}}</p>
+
+                </a>
+            </li>
+
+
+        </ul>
     </ul>
-    </ul>
-    
-   
+    <div class="footer">
+        <app-footer></app-footer>
+    </div>
+
+
 </div>
-
-
-
