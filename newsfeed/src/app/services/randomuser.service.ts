@@ -10,7 +10,7 @@ export class RandomuserService {
 
   constructor(private http: HttpClient) { }
 
-  getRandomUser(): Observable<any>{
+  getRandomUser(): Observable<any> {
     return this.http.get(this.url);
   }
 }

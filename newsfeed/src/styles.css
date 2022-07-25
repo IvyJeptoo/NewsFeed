@@ -14,6 +14,7 @@
     color: black;
     border-radius: 0.8em;
     margin-bottom: 2em;
+    
 
 }
 .feedAction {
@@ -47,7 +48,7 @@ img {
     padding: 0 3em;
     background-color: black;
     color: white;
-    height: 100%;
+    min-height: 100vh;
 }
 .navbar{
     width: 25%;
@@ -56,15 +57,50 @@ img {
     position: fixed; 
     background-color: black; 
 }
+.primary{
+    color: lightseagreen;
+}
 
+.randomuser img {
+    height: 4em;
+    width: 4em;
+    border-radius: 50%;
+    margin-bottom: 0.1em;
+
+}
+.randomuser {
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+    margin-bottom: 0.1em;   
+    
+}
+h6{
+    margin-left: 1.5em;
+}
+.random{
+    display: flex;
+    align-items: center;
+    background-color: black;
+    width: 20em;
+    padding: 0.5em;
+    position: -webkit-sticky;
+    position: sticky;
+    margin-left: 55em;
+    top: 0;
+    border-radius: 1em;    
+}
 @media only screen and (max-width: 600px) {
     
     .navbar {
       /* background-color: lightblue; */
-      height: 20%;
+      height: 68vh;
       width: 100%;
       overflow-x: hidden;
       position: sticky;
+      padding-top: 10em;
      
     }
     .allFeeds{
@@ -76,20 +112,32 @@ img {
         
     }
     .mainFeed{
-        /* width: 100%; */
-        width: 25em;
+        width: 23em;
         overflow-x: hidden;        
-        position: sticky;
+        margin-bottom: 0.8em;
     }
     img{
-        height: 9em;
-        width: 10em;
+        height: 10em;
+        width: 15em;
     }
     .feedAction {
-        /* width: 25em; */
         padding: 0.5em;
         margin: .6em;
         
+    }
+    .footer{
+        display: none;
+    }
+    
+    .random{
+        background-color: lightseagreen;
+        position: fixed;
+        color: black;
+        margin-left: 0em;
+        margin-bottom: 1em;
+    }
+    .random .bx{
+        color: black;
     }
    
   }
