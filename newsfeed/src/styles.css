@@ -1,47 +1,68 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=BhuTuka+Expanded+One&family=Cookie&family=Dancing+Script:wght@400;700&family=Inspiration&family=Pacifico&family=Poppins:wght@100;300&family=Satisfy&family=Shadows+Into+Light&display=swap');
 
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    
+
 }
-.mainFeed{
+
+.mainFeed {
     background-color: 0.3em;
     background-color: rgb(221, 243, 242);
     color: black;
     border-radius: 0.8em;
     margin-bottom: 2em;
-    
+
 
 }
+
 .feedAction {
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: space-between;
     padding: 1em 2em;
-    
+
 }
+
+.comment {
+    background-color: white;
+    border-radius: 2em;
+    margin-bottom: 2em;
+    width: 30em;
+    padding: 2em;
+}
+
 
 .image {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+.imagepost {
+    /* margin-right: 48em; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 img {
     height: 15em;
     width: 25em;
     border-radius: 0.2em;
 
 }
-.feedActivity{
+
+.feedActivity {
     display: flex;
     align-items: center;
     padding-top: 0.5em;
 }
-.allFeeds{
+
+.allFeeds {
     width: 75%;
     float: left;
     margin-left: 25%;
@@ -50,14 +71,16 @@ img {
     color: white;
     min-height: 100vh;
 }
-.navbar{
+
+.navbar {
     width: 25%;
     height: 100%;
-    float: left; 
-    position: fixed; 
-    background-color: black; 
+    float: left;
+    position: fixed;
+    background-color: black;
 }
-.primary{
+
+.primary {
     color: lightseagreen;
 }
 
@@ -68,19 +91,22 @@ img {
     margin-bottom: 0.1em;
 
 }
+
 .randomuser {
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
     padding-top: 0.5em;
     padding-bottom: 1em;
-    margin-bottom: 0.1em;   
-    
+    margin-bottom: 0.1em;
+
 }
-h6{
+
+h6 {
     margin-left: 1.5em;
 }
-.random{
+
+.random {
     display: flex;
     align-items: center;
     background-color: black;
@@ -90,54 +116,70 @@ h6{
     position: sticky;
     margin-left: 55em;
     top: 0;
-    border-radius: 1em;    
+    border-radius: 1em;
 }
-@media only screen and (max-width: 600px) {
-    
+
+@media only screen and (max-width: 800px) {
+
     .navbar {
-      /* background-color: lightblue; */
-      height: 68vh;
-      width: 100%;
-      overflow-x: hidden;
-      position: sticky;
-      padding-top: 10em;
-     
+        /* background-color: lightblue; */
+        height: 68vh;
+        width: 100%;
+        overflow-x: hidden;
+        position: sticky;
+        padding-top: 10em;
+
     }
-    .allFeeds{
+
+    .allFeeds {
         width: 100vw;
         margin: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
-        
+
     }
-    .mainFeed{
+
+    .mainFeed {
         width: 23em;
-        overflow-x: hidden;        
+        overflow-x: hidden;
         margin-bottom: 0.8em;
     }
-    img{
+
+    img {
         height: 10em;
         width: 15em;
     }
+
     .feedAction {
         padding: 0.5em;
         margin: .6em;
-        
+
     }
-    .footer{
+
+    .imagepost {
+        display: block;
+    }
+
+    .comment {
+        max-width: 18em;
+        margin: 0 2.5em 1em 2em;
+    }
+
+    .footer {
         display: none;
     }
-    
-    .random{
+
+    .random {
         background-color: lightseagreen;
         position: fixed;
         color: black;
         margin-left: 0em;
         margin-bottom: 1em;
     }
-    .random .bx{
+
+    .random .bx {
         color: black;
     }
-   
-  }
+
+}

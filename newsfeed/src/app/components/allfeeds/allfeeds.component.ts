@@ -16,29 +16,39 @@ export class AllfeedsComponent implements OnInit {
   likeFeedArray: any[];
   commentFeedArray: any[];
   idFeed: any[];
-  singleFeed: any;
+  singleFeed: any = {};
   public errorMessage;
+  active: number = -1;
+
+
+  toggleComment(index: number) {
+    if (index == this.active) {
+      this.active = -1
+      return;
+    }
+    this.active = index
+  }
+  isActive(index: number) {
+    if (index == this.active) {
+      return true;
+    }
+    return false;
+  }
 
 
   // username event emmiter
   userFeedFunction(valueEmitted) {
     this.username = valueEmitted;
     this.postService.GetSingleUserFeed(this.username).subscribe(res => this.postList = res)
-    console.log(this.postList);
 
   }
-  // Comment functionality
-  isShowComment = true;
-  toggleDisplay() {
-    this.isShowComment = !this.isShowComment
-  }
+ 
 
   // comment feed alert
   comment: string = "";
   postComment(index: number) {
-    console.log(this.comment);
+    
     let usercomment = {
-      "userId": "",
       "subject": this.randomuser.name.first,
       "action": "commented on",
       "owner": `${this.postList[index].subject}'s`,
@@ -46,35 +56,43 @@ export class AllfeedsComponent implements OnInit {
       "message": this.comment,
       "object": this.postList[index].object,
       "date": Date.now(),
-
     }
-    this.comment = '';
-
-    // update comment 
-    this.postService.PostUserComment(usercomment).subscribe(res => {
+    
+    this.postService.PostActivity(usercomment).subscribe(res => {
       console.log(res);
+
+    });
+    
+    let idFeed = this.postList[index].id
+    
+
+    this.postService.GetSingleFeed(idFeed).subscribe(res =>{
       this.singleFeed = res
+      
       this.commentFeedArray = this.singleFeed.comments
       let randomcommentor = this.randomuser.name.first
-      this.commentFeedArray.push({ "comment": this.comment, "commentor": randomcommentor })
+      this.commentFeedArray.push({ "comment": this.comment, "commenter": randomcommentor })
+      
       let comments = this.commentFeedArray
+
       let userCommentUpdate = {
-        "userId": "",
-        "subject": this.singleFeed[index].subject,
-        "action": this.singleFeed[index].action,
-        "object": this.singleFeed[index].object,
-        "image": this.singleFeed[index].image,
-        "date": this.singleFeed[index].date,
-        "likes": this.singleFeed[index].likes,
+        "subject": this.singleFeed.subject,
+        "action": this.singleFeed.action,
+        "object": this.singleFeed.object,
+        "image": this.singleFeed.image,
+        "date": this.singleFeed.date,
+        "likes": this.singleFeed.likes,
         "comments": comments
-      }
-      let idFeed = this.postList[index].id
+      }      
+
       this.postService.UpdateFeed(idFeed, userCommentUpdate).subscribe(res => {
         console.log(res);
         this.allFeeds()
-      })
+      });
+      this.comment = '';
 
-    })
+    });
+   
     this.allFeeds()
   }
 
@@ -94,7 +112,6 @@ export class AllfeedsComponent implements OnInit {
     this.randomuserService.getRandomUser().subscribe(
       (data: any) => {
         this.randomuser = data.results[0];
-        console.log(this.randomuser);
 
       }
     );
@@ -106,7 +123,6 @@ export class AllfeedsComponent implements OnInit {
 
     let userlike = {
 
-      "userId": this.postList[index].userId,
       "subject": this.randomuser.name.first,
       "action": "liked",
       "owner": `${this.postList[index].subject}'s`,
@@ -114,50 +130,44 @@ export class AllfeedsComponent implements OnInit {
       "object": this.postList[index].object,
       "date": Date.now(),
     }
-    this.postService.PostLike(userlike).subscribe(res => {
+    this.postService.PostActivity(userlike).subscribe(res => {
       console.log(res);
 
 
 
     });
     //get feed by id
-    let idFeed = this.postList[index].id
-    console.log(idFeed);
+    let idFeed = this.postList[index].id  
     
 
     // update like 
     this.postService.GetSingleFeed(idFeed).subscribe(res => {
       console.log(res);
-      this.singleFeed = res
-      this.likeFeedArray = this.singleFeed.likes
-      console.log(this.likeFeedArray);
-      let randomliker = this.randomuser.name.first
-      console.log(randomliker);
-      this.likeFeedArray.push(randomliker)
-      console.log(this.likeFeedArray);
-      let likes = this.likeFeedArray
-      console.log(likes);
+      this.singleFeed = res  
       
+      this.likeFeedArray = this.singleFeed.likes
+      let randomliker = this.randomuser.name.first
+      this.likeFeedArray.push(randomliker)
+      let likes = this.likeFeedArray
 
       let userLikeUpdate = {
-
-        "userId": this.singleFeed[index].userId,
-        "subject": this.singleFeed[index].subject,
-        "action": this.singleFeed[index].action,
-        "object": this.singleFeed[index].object,
-        "image": this.singleFeed[index].image,
-        "owner": this.singleFeed[index].owner,
-        "date": this.singleFeed[index].date,
-        "likes": ["new"],
-        "comments": this.singleFeed[index].comments
+        "subject": this.singleFeed.subject,
+        "action": this.singleFeed.action,
+        "object": this.singleFeed.object,
+        "image": this.singleFeed.image,
+        "owner": this.singleFeed.owner,
+        "date": this.singleFeed.date,
+        "likes": likes,
+        "comments": this.singleFeed.comments
       }
-      this.postService.UpdateFeed(idFeed, userLikeUpdate).subscribe(res => {
+      
+      
+      this.postService.UpdateFeed(idFeed, userLikeUpdate).subscribe((res: any) => {
         console.log(res)
-        // error => this.errorMessage = error
-        // console.log(this.errorMessage);
+
         
 
-        // this.allFeeds()
+        this.allFeeds()
       });
     })
     this.allFeeds()

@@ -1,19 +1,15 @@
-.modal {
-    border-radius: 0.2em;
-    background-color: rgb(221, 243, 242);
-}
 
-textarea {
-    margin: 0.7em;
-    width: 30%;
+input {
+    margin: 0.2em;
+    width: 15em;
     border: 1px solid lightseagreen;
     border-radius: 1em;
-    padding-left: 0.5em;
-    /* padding-top: 0.5em; */
+    padding-left: 1em;
     padding: 0.5em;
+    /* margin-left: 4em; */
+    margin-bottom: 0.8em;
 }
-
-.commentSection {
-    display: flex;
-    align-items: center;
+h5{
+    font-weight: 600;
+    
 }

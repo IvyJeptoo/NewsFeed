@@ -3,15 +3,14 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Post } from '../models/post';
 import { Observable,throwError } from 'rxjs/';
 import { tap, catchError } from 'rxjs/operators'
-// import 'rxjs/add/operator/catch'
-// import 'rxjs/add/observable/throw'
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
   // BASE URL
-  baseurl = 'http://localhost:3000/feedActivity';
+  baseurl = 'https://zerakinewsfeedapi.herokuapp.com/feedActivity';
 
 
   constructor(private http: HttpClient) { }
@@ -30,20 +29,12 @@ export class PostService {
 
   //  PUT REQUESTS
   UpdateFeed(feedId: any, update: any): Observable<any> {
-    return this.http.put<Post[]>(`${this.baseurl}/${feedId}`, update)
-                    // .pipe(catchError(this.errorHandler));
-
+    return this.http.put<any>(`${this.baseurl}/${feedId}/`, update)
   }
-  // errorHandler(error: HttpErrorResponse){
-  //   return throwError(error.message|| "SERVER ERROR!" )   
-  // }
-
+  
   // POST REQUESTS
-  PostLike(userlike): Observable<any[]> {
-    return this.http.post<Post[]>(this.baseurl, userlike)
-  }
-  PostUserComment(usercomment): Observable<any[]> {
-    return this.http.post<Post[]>(this.baseurl, usercomment)
+  PostActivity(user): Observable<any[]> {
+    return this.http.post<Post[]>(this.baseurl, user)
   }
 
 }

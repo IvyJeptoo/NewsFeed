@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <div *ngFor="let posts of postList; index as like">
+        <div *ngFor="let posts of postList; index as i">
             <!-- POST FEED ALERT -->
             <div *ngIf="posts.hasOwnProperty('image')" class="mainFeed">
                 <div class="feedAction ">
@@ -23,48 +23,46 @@
                     <p><strong>{{posts.subject}}</strong> {{posts.action}} a new {{posts.object}}</p>
                     <p> {{posts.date | date: "dd/MM/yyyy"}} </p>
                 </div>
-                <div class="image">
-                    <img src="{{posts.image}}" alt="">
-                    <div class="feedActivity">
-                        <div class="feedActivity">
-                            <p (click)="likeOnClick(like)" style="margin-right: 0.2em;">
-                                <i class='bx bx-heart bx-sm bx-tada-hover primary'></i>
-                            </p>
-                            <p>{{posts.likes.length}}</p>
+                <div class="imagepost">
+                    <div class=" image">
+                        <img src="{{posts.image}}" alt="">
+                        <div class="feedActivity feedicon">
+                            <div class="feedActivity">
+                                <p (click)="likeOnClick(i)" style="margin-right: 0.2em;">
+                                    <i class='bx bx-heart bx-sm bx-tada-hover primary'></i>
+                                </p>
+                                <p>{{posts.likes.length}}</p> &nbsp; &nbsp;
 
-                        </div>
-                        <div class="feedActivity">
-                            <p style="margin-right: 0.2em; margin-left:0.7em">
-                                <i onclick="document.getElementById('id01').style.display='block'"
-                                    (click)="toggleDisplay()"
-                                    class='bx bx-message-rounded-dots bx-sm bx-tada-hover primary'></i>
-                            <p>{{posts.comments.length}}</p>
+                            </div>
+                            <div class="feedActivity">
+                                <p  style="margin-right: 0.2em;">
+                                    
+                                    <i class='bx bx-message-rounded-dots bx-sm bx-tada-hover primary'></i>
+                                </p>
+                                <p>{{posts.comments.length}}</p> &nbsp; &nbsp;
 
-
-                            <div [hidden]="isShowComment" id="id01" class="w3-modal">
-                                <div class="w3-modal-content modal">
-
-                                    <header class="w3-container w3-teal">
-                                        <span onclick="document.getElementById('id01').style.display='none'"
-                                            class="w3-button w3-display-topright">&times;</span>
-                                        <h2>Comment Section</h2>
-                                    </header>
-                                    <div class="commentSection">
-
-                                        <textarea name="comment" [(ngModel)]="comment"></textarea>
-                                        <i (click)="postComment(like)"
-                                            class='bx bx-send bx-lg bx-tada-hover primary'></i>
-
-                                    </div>
-
-
-
-                                </div>
                             </div>
 
+                            <div class="feedActivity ">
+                                <input placeholder="add comment here..." name="comment" [(ngModel)]="comment">
+                                <i (click)="postComment(i)" class='bx bx-send bx-sm bx-tada-hover primary'></i>
+
+                            </div>
+                        </div>
+                        
+
+                    </div>
+                    <div class="comment">
+                        <h5 style="font-size: medium;">Comments</h5>
+                        <div *ngFor="let comments of posts.comments">
+
+                            <p><strong>{{comments.commenter}}:</strong> &nbsp; {{comments.comment}}</p>
                         </div>
                     </div>
+
                 </div>
+
+
             </div>
             <!-- COMMENT FEED ALERT -->
             <div *ngIf="posts.hasOwnProperty('info')" class="mainFeed">
