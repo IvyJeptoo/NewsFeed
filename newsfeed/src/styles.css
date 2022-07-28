@@ -80,7 +80,7 @@ img {
     background-color: black;
 }
 .sidebar{
-    height: 22em;
+    height: 24em;
     width: 0;
     position: fixed;
     z-index: 1;
@@ -88,7 +88,7 @@ img {
     left: 0;
     background-color: black;
     overflow-x: hidden;
-    margin-top: 8em;
+    margin-top: 9em;
     transition: 0.5s;
    
 
@@ -151,15 +151,16 @@ h6 {
 
 @media only screen and (max-width: 800px) {
 
-    .navbar {
-        /* background-color: lightblue; */
-        /* height: 68vh; */
+    .navbar {       
         width: 100%;
         overflow-x: hidden;
         position: sticky;
         padding-top: 10em;
 
     }    
+    .closebtn{
+        margin-bottom: 1em;
+    }
    
     .main-nav{
         display: none;
@@ -175,6 +176,7 @@ h6 {
     }
     .openbtn{
         display: block;
+
     }
 
     .mainFeed {
@@ -218,6 +220,8 @@ h6 {
     .random .bx {
         color: black;
     }
+   
+   
 
   
 
