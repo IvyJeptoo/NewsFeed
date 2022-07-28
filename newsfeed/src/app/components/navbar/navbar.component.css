@@ -27,7 +27,11 @@ li a.active {
 li a:hover:not(.active) {
     background-color: lightseagreen;
     color: black;
+    transform: scale(1.1);
+    transition: 0.3s;
 }
+
+
 
 img {
     height: 2em;

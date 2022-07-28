@@ -79,7 +79,38 @@ img {
     position: fixed;
     background-color: black;
 }
+.sidebar{
+    height: 22em;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    margin-top: 8em;
+    transition: 0.5s;
+   
 
+}
+
+.sidebar .closebtn{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    margin-left: 50px;
+    
+}
+.openbtn{
+    cursor: pointer;
+    background-color: black;
+    color: lightseagreen;
+    border: none;
+    font-size: 2em;
+    display: none;
+    /* display: none; */
+
+}
 .primary {
     color: lightseagreen;
 }
@@ -123,14 +154,18 @@ h6 {
 
     .navbar {
         /* background-color: lightblue; */
-        height: 68vh;
+        /* height: 68vh; */
         width: 100%;
         overflow-x: hidden;
         position: sticky;
         padding-top: 10em;
 
+    }    
+   
+    .main-nav{
+        display: none;
+        height: 5em;
     }
-
     .allFeeds {
         width: 100vw;
         margin: 0;
@@ -138,6 +173,9 @@ h6 {
         flex-direction: column;
         align-items: center;
 
+    }
+    .openbtn{
+        display: block;
     }
 
     .mainFeed {
@@ -181,5 +219,7 @@ h6 {
     .random .bx {
         color: black;
     }
+
+  
 
 }
