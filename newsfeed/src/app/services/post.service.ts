@@ -10,7 +10,7 @@ import { tap, catchError } from 'rxjs/operators'
 })
 export class PostService {
   // BASE URL
-  baseurl = 'https://zerakinewsfeedapi.herokuapp.com/feedActivity';
+  baseurl = 'http://localhost:3000/feedActivity';
 
 
   constructor(private http: HttpClient) { }

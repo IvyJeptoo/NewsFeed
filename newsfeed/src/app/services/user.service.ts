@@ -8,7 +8,7 @@ import { Observable, catchError } from 'rxjs';
 })
 export class UserService {
   // BASE URL
-  baseurl = 'https://zerakinewsfeedapi.herokuapp.com/users';
+  baseurl = 'http://localhost:3000/users';
 
 
   constructor(private http: HttpClient) { }
@@ -17,7 +17,5 @@ export class UserService {
   GetAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.baseurl);
   }
-
-
 
 }
