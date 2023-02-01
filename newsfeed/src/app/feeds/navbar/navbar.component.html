@@ -1,0 +1,55 @@
+
+    <button class="openbtn" onclick="openNav()">&#9776; </button>
+    
+
+<header class="header">
+    <div class="nav">
+        
+        <div id="mySidebar" class="sidebar">
+            <ul>
+                <a  style="color: black; font-size: 2em;" href="javascript:void(0)" class="closebtn active" onclick="closeNav()">&times;</a>
+                <li  style="font-weight: 600;">
+                    <a  (click)="getFeeds()" routerLink="/" class="active"  >
+                        <p> All Friends</p>
+                    </a>
+                </li>
+            </ul>
+            <ul *ngFor="let users of UsersList; index as i">
+                <li >
+                    <a (click)="getUser(i)" class="navComponents nav-link" >
+                        <img src="{{users.profilePicture}}" alt="">
+                        <p (click)="getUser(i)">{{users.username}}</p>
+
+                    </a>
+                </li>
+            </ul>
+        </div> 
+
+        <nav class="main-nav">
+            <ul class="nav-menu">
+                <li class="nav-item" style="font-weight: 600;">
+                    <a  (click)="getFeeds()" routerLink="/" class="active nav-link" >
+                        <p> All Friends</p>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav-menu" *ngFor="let users of UsersList; index as i">
+                <li class="nav-item">
+                    <a (click)="getUser(i)" class="navComponents nav-link">
+                        <img src="{{users.profilePicture}}" alt="">
+                        <p (click)="getUser(i)">{{users.username}}</p>
+
+                    </a>
+                </li>
+
+            </ul>
+
+
+        </nav>
+       
+        <div class="footer">
+            <app-footer></app-footer>
+        </div>
+
+    </div>
+</header>
