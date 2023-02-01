@@ -1,31 +1,28 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { AllfeedsComponent } from './components/allfeeds/allfeeds.component';
 import { UserService } from './services/user.service';
-import { FormsModule } from '@angular/forms';
-import { UserfeedComponent } from './components/userfeed/userfeed.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FeedsModule } from './feeds/feeds.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    FooterComponent,
-    AllfeedsComponent,
-    UserfeedComponent,    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule,
+    FeedsModule,
+    ReactiveFormsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
