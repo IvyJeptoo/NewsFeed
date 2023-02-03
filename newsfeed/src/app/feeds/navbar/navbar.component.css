@@ -7,7 +7,6 @@ ul {
 
 li a {
     display: block;
-    color: rgb(221, 243, 242);
     padding-left: 3em;
     padding-top: 0.8em;
     padding-bottom: 0.3em;
@@ -15,23 +14,21 @@ li a {
     font-size: larger;
     display: flex;
     align-items: center;
+    /* height: 10px; */
 }
 
 li a.active {
-    background-color: lightseagreen;
-    color: black;
+    background-color: #52658F;
+    color: #E8E8E8;
     padding: 1em;
     padding-left: 2em;
 }
 
 li a:hover:not(.active) {
-    background-color: lightseagreen;
+    background-color: #52658F;
     color: black;
   
 }
-
-
-
 img {
     height: 2em;
     width: 2em;
