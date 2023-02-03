@@ -8,17 +8,18 @@
 
 }
 
-.mainFeed {
+.main-feed {
     background-color: 0.3em;
-    background-color: rgb(221, 243, 242);
+    background-color: #E8E8E8;
     color: black;
     border-radius: 0.8em;
     margin-bottom: 2em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 
 }
 
-.feedAction {
+.feed-action {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -26,14 +27,30 @@
 
 }
 
-.comment {
-    background-color: white;
-    border-radius: 2em;
+.comments {
+    background-color: #d8d8d8;
+    border-radius: 1em;
     margin-bottom: 2em;
     width: 30em;
     padding: 2em;
+    overflow-y: scroll;
+    height: 11em;
 }
-
+.comments p{
+    background-color: white;
+    border: 1.5px solid #d8d8d8;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    box-shadow:4px 4px 5px #888888;
+}
+.comment-section{
+    align-items: center;
+}
 
 .image {
     display: flex;
@@ -41,41 +58,49 @@
     align-items: center;
 }
 
-.imagepost {
+.image-post {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    gap: 5em;
 }
 
-img {
-    height: 15em;
-    width: 25em;
-    border-radius: 0.2em;
-
+.img {
+    height: 20em;
+    margin-left: 2em ;
+    border-radius: 0.8em;
+}
+.img-section{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 2em;
 }
 
-.feedActivity {
+.feed-activity {
     display: flex;
     align-items: center;
     padding-top: 0.5em;
 }
 
-.allFeeds {
+.all-feeds {
     width: 75%;
     float: left;
-    margin-left: 25%;
     padding: 0 3em;
-    background-color: black;
     color: white;
     min-height: 100vh;
+    background-color: #F7F5E6;
 }
+.feed-icons p{
+    margin-right: 0.2em;
+}
+
 
 .navbar {
     width: 25%;
+    color: black;
     height: 100%;
     float: left;
     position: fixed;
-    background-color: black;
+    overflow-y: hidden;
 }
 .sidebar{
     height: 24em;
@@ -84,7 +109,7 @@ img {
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: black;
+    background-color: #E8E8E8;
     overflow-x: hidden;
     margin-top: 9em;
     transition: 0.5s;
@@ -102,14 +127,17 @@ img {
 .openbtn{
     cursor: pointer;
     background-color: black;
-    color: lightseagreen;
+    color: #52658F;
     border: none;
     font-size: 2em;
     display: none;
 
 }
 .primary {
-    color: lightseagreen;
+    color: #F7F5E6;
+}
+.outline{
+    color: #52658F;
 }
 
 .randomuser img {
@@ -137,20 +165,35 @@ h6 {
 .random {
     display: flex;
     align-items: center;
-    background-color: black;
+    background-color: #52658F;
     width: 20em;
     padding: 0.5em;
     position: -webkit-sticky;
     position: sticky;
-    margin-left: 55em;
+    margin-left: 70em;
     top: 0;
+    right: 0;
     border-radius: 1em;
 }
+.background{
+    background-color: #E8E8E8;
+}
+input {
+    margin: 0.2em;
+    width: 22em;
+    border: 2px solid #52658F;
+    border: none;
+    border-radius: 5px 5px 0px 0px;
+    border-bottom: 1px solid #52658F;
+    padding-left: 1em;
+    padding: 0.5em;
+    margin-bottom: 0.8em;
 
-@media only screen and (max-width: 800px) {
+}
 
+@media only screen and (max-width: 413px) {
     .navbar {       
-        width: 100%;
+        min-width: 100%;
         overflow-x: hidden;
         position: sticky;
         padding-top: 10em;
@@ -164,7 +207,7 @@ h6 {
         display: none;
         height: 5em;
     }
-    .allFeeds {
+    .all-feeds {
         width: 100vw;
         margin: 0;
         display: flex;
@@ -174,53 +217,282 @@ h6 {
     }
     .openbtn{
         display: block;
-
     }
-
-    .mainFeed {
-        width: 23em;
+    .main-feed {
+        max-width: 600px;
+        max-height: 25em;
         overflow-x: hidden;
         margin-bottom: 0.8em;
+        font-size: small;
+        word-wrap: wrap;
+    }
+    .img {
+        max-height: 10em;
+        max-width: 27em;
+        margin-right: 1em;
     }
 
-    img {
-        height: 10em;
-        width: 15em;
+    .comments{
+        max-width: 200px;
+        margin-left: 4em;
     }
-
+    .feed-icons{
+        margin-left: 2em;
+        align-items: centre;
+        
+    }
     .feedAction {
         padding: 0.5em;
         margin: .6em;
-
     }
-
-    .imagepost {
+    .image-post {
         display: block;
-    }
-
-    .comment {
-        max-width: 18em;
-        margin: 0 2.5em 1em 2em;
-    }
-
+    }  
     .footer {
         display: none;
     }
-
     .random {
-        background-color: lightseagreen;
+        background-color: #52658F;
         position: fixed;
         color: black;
         margin-left: 0em;
         margin-bottom: 1em;
     }
-
     .random .bx {
         color: black;
     }
-   
-   
-
+    input{
+        max-width: 10em;
+        padding: 0;
+    }
   
 
 }
+@media (min-width: 414px) and (max-width: 576px) {
+    .all-feeds {
+        width: 75vw;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        float: right;
+    }
+    .main-feed {
+        display: flex;
+        flex-direction: column;
+        max-width: 650px;
+        max-height: 25em;
+        overflow-x: hidden;
+        margin-bottom: 0.8em;
+        font-size: small;
+        word-wrap: wrap;
+    }
+    .all-feeds {
+        /* width: 75%; */
+        
+        float: left;
+        margin-left: 10em;
+        /* padding: 0 3em; */
+        color: white;
+        min-height: 100vh;
+        /* background-color: #F7F5E6; */
+        /* background-color: yellow; */
+        margin-top: 4em;
+    }
+    .navbar{
+        width: 12em;
+        color: black;
+        height: 100%;
+        float: left;
+        position: fixed;
+        overflow-y: hidden;
+        font-size: small;
+    }
+    .sidebar{
+        height: 24em;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #E8E8E8;
+        overflow-x: hidden;
+        margin-top: 9em;
+        transition: 0.5s;       
+    
+    }
+    .main-feed {
+        max-width: 300px;
+        max-height: 25em;
+        overflow-x: hidden;
+        margin-bottom: 0.8em;
+        font-size: small;
+        word-wrap: wrap;
+    }
+    .img {
+        max-height: 10em;
+        max-width: 27em;
+        margin-right: 1em;
+    }
+
+    .comments{
+        max-width: 200px;
+        margin-left: 4em;
+    }
+    .feed-icons{
+        margin-left: 2em;
+        align-items: centre;
+        
+    }
+    .feeds{
+        overflow-x: hidden;
+        background-color: #F7F5E6;
+    }
+    .random {
+        background-color: #52658F;
+        position: fixed;
+        color: black;
+        margin-left: 14em;
+        width: 20em;
+        height: 5em;
+        font-size: small;
+        /* margin-bottom: 3em; */
+    }
+    .random .bx {
+        color: black;
+    }
+    input{
+        max-width: 10em;
+        padding: 0;
+    }  
+    .image-post {
+        display: block;
+    } 
+    
+    
+   
+  }
+  @media (min-width: 576px) and (max-width: 992px){
+    .all-feeds {        
+        float: left;
+        margin-left: 15em;
+        /* padding: 0 3em; */
+        color: white;
+        min-height: 100vh;
+        background-color: #F7F5E6;
+        margin-top: 4em;
+    }
+    .navbar{
+        width: 15em;
+        color: black;
+        height: 100%;
+        float: left;
+        position: fixed;
+        overflow-y: hidden;
+        font-size: medium;
+        
+    }
+    .feeds{
+        overflow-x: hidden;
+        background-color: #F7F5E6;
+    }
+    .random {
+        background-color: #52658F;
+        position: fixed;
+        color: black;
+        margin-left: 14em;
+        width: 20em;
+        height: 5em;
+        font-size: small;
+        /* margin-bottom: 3em; */
+    }
+    .random .bx {
+        color: black;
+    }
+    .main-feed {
+        /* max-width: 300px; */
+        max-height: 25em;
+        overflow-x: hidden;
+        margin-bottom: 0.8em;
+        font-size: small;
+        word-wrap: wrap;
+    }
+    .img {
+        
+        margin-right: 1em;
+    }
+
+    .comments{
+        margin-left: 5em;
+    }
+    .feed-icons{
+        margin-left: 4em;
+        align-items: centre;
+        
+    }
+    .image-post {
+        display: block;
+    } 
+
+  }
+  @media (min-width: 993px) {
+    .all-feeds {        
+        float: left;
+        margin-left: 15em;
+        /* padding: 0 3em; */
+        color: white;
+        min-height: 100vh;
+        background-color: #F7F5E6;
+        margin-top: 8em;
+    }
+    .navbar{
+        width: 15em;
+        color: black;
+        height: 100%;
+        float: left;
+        position: fixed;
+        overflow-y: hidden;
+        font-size: medium;
+        
+    }
+    .feeds{
+        overflow-x: hidden;
+        background-color: #F7F5E6;
+    }
+    .random {
+        background-color: #52658F;
+        position: fixed;
+        color: black;
+        margin-left: 20em;
+        width: 20em;
+        height: 7em;
+        font-size: medium;
+        /* margin-bottom: 3em; */
+    }
+    .random .bx {
+        color: black;
+    }
+    .main-feed {
+        /* max-width: 300px; */
+        max-height: 25em;
+        overflow-x: hidden;
+        margin-bottom: 0.8em;
+        font-size: medium;
+        word-wrap: wrap;
+    }
+    .img {
+        
+        margin-right: 1em;
+    }
+
+    .comments{
+        margin-left: 5em;
+    }
+    .feed-icons{
+        margin-left: 4em;
+        align-items: centre;
+        
+    }
+    
+
+  }
