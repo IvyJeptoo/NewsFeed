@@ -1,5 +1,4 @@
 export class Post {
-    showComment: boolean;
     constructor(
         public id: number,
         public subject: string,
@@ -11,15 +10,7 @@ export class Post {
         public comment: string,
         public follow: string,
         public info: string,
-    ){
-        this.showComment=false
+    ){}
 
-    }
-    
-    
-    
-    
-    
-    
     
 }

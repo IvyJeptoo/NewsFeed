@@ -1,12 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AllfeedsComponent } from './feeds/allfeeds/allfeeds.component';
-import { NavbarComponent } from './feeds/navbar/navbar.component';
 
-const routes: Routes = [
-  {path: '', component: AllfeedsComponent},
-  {path: 'userFeed', component: NavbarComponent}
-];
 
 const appRoutes: Routes = [
   {
