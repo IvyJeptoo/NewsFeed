@@ -3,7 +3,12 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // apiUrl: 'http://localhost:3000',
+  apiUrl: 'https://friendly-umbrella-cow.cyclic.app',
+  randomUrl: 'https://randomuser.me/api/'
+  
+
 };
 
 /*
