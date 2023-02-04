@@ -1,40 +1,39 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Post } from '../models/post';
-import { Observable,throwError } from 'rxjs/';
-import { tap, catchError } from 'rxjs/operators'
-
+import { Observable } from 'rxjs/';
+import { environment } from 'environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  // BASE URL
-  baseurl = 'http://localhost:3000/feedActivity';
-
+  
+  
 
   constructor(private http: HttpClient) { }
 
   // GET REQUESTS
   GetAllFeeds(): Observable<Post[]> {
-    return this.http.get<Post[]>(this.baseurl).pipe(tap((posts) => posts.sort((a, b) => b.date - a.date)));
+    return this.http.get<Post[]>(`${environment.apiUrl}/feed-activity`);
   }
+  
   GetSingleFeed(feedId): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.baseurl}/${feedId}`)
+    return this.http.get<Post[]>(`${environment.apiUrl}/feed-activity/${feedId}`)
   }
 
   GetSingleUserFeed(username): Observable<Post[]> {
-    return this.http.get<Post[]>(this.baseurl + `?subject=${username}`)
+    return this.http.get<Post[]>(`${environment.apiUrl}/feed-activity?subject=${username}`)
   }
 
   //  PUT REQUESTS
   UpdateFeed(feedId: any, update: any): Observable<any> {
-    return this.http.put<any>(`${this.baseurl}/${feedId}/`, update)
+    return this.http.put<any>(`${environment.apiUrl}/feed-activity/${feedId}/`, update)
   }
   
   // POST REQUESTS
   PostActivity(user): Observable<any[]> {
-    return this.http.post<Post[]>(this.baseurl, user)
+    return this.http.post<Post[]>(`${environment.apiUrl}/feed-activity`, user)
   }
 
 }
